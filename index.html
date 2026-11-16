@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Museum | المتحف الوطني</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+		/* Saudi Heritage Colors */
+		:root {
+		    --navy: #101d32;
+		    --gold: #d6bb83;
+		    --lavender: #a99acb;
+		    --light-lavender: #eee9f5;
+		    --saudi-green: #557b62;
+		    --light-green: #e8efe8;
+		    --off-white: #f5f1e8;
+		}
+
+		/* Lavender and Green accents */
+		.hero .subtitle {
+		    color: var(--lavender);
+		}
+
+		.hero h1 {
+		    color: #e4cf9e;
+		}
+
+		.hero .hero-arabic {
+		    color: #d8cdea;
+		}
+
+		button {
+		    background-color: var(--saudi-green);
+		    color: white;
+		}
+
+		button:hover {
+		    background-color: #41664f;
+		}
+
+		.card {
+		    border-bottom: 4px solid var(--lavender);
+		}
+
+		.card h3 {
+		    color: var(--saudi-green);
+		}
+
+		.artifact-item {
+		    border-bottom: 3px solid var(--lavender);
+		}
+
+		.artifact-info h3 {
+		    color: var(--saudi-green);
+		}
+
+		.image-source {
+		    color: #8876ad;
+		}
+
+		.registration {
+		    background-color: var(--light-green);
+		}
+
+		.registration-form {
+		    border-top: 4px solid var(--lavender);
+		}
+
+		.registration-form input {
+		    border: 1px solid #b5a6d0;
+		}
+
+		.registration-form input:focus {
+		    outline: 2px solid var(--saudi-green);
+		}
+
+		.ticket {
+		    background-color: #f8f5fc;
+		    border: 2px dashed var(--lavender);
+		    border-top: 7px solid var(--saudi-green);
+		}
+
+		.ticket h3 {
+		    color: var(--saudi-green);
+		}
+
+		.ticket span {
+		    color: var(--saudi-green);
+		}
+
+		.ticket-note {
+		    color: #8876ad !important;
+		}
+
+		.member {
+		    background-color: var(--light-green);
+		    border: 1px solid #a99acb;
+		}
+
+		.team {
+		    border-top: 4px solid var(--lavender);
+		}
+
+		footer {
+		    border-top: 4px solid var(--saudi-green);
+		}
+
+        body {
+            font-family: Georgia, Arial, sans-serif;
+            background-color: #f5f1e8;
+            color: #202b3c;
+        }
+
+        /* Navigation */
+        header {
+            background-color: #101d32;
+            color: white;
+            padding: 24px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        header h2 {
+            color: #d6bb83;
+            letter-spacing: 2px;
+        }
+
+        header .arabic {
+            color: #f5f1e8;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        nav a {
+            color: #f5f1e8;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        nav a:hover {
+            color: #d6bb83;
+        }
+
+        nav .arabic {
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        /* Arabic Text */
+        .arabic {
+            direction: rtl;
+            font-family: Tahoma, Arial, sans-serif;
+            line-height: 1.9;
+        }
+
+        .arabic-description {
+            direction: rtl;
+            font-family: Tahoma, Arial, sans-serif;
+            color: #77736b;
+            font-size: 14px;
+            line-height: 1.9;
+            margin-top: 7px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 560px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(
+                135deg,
+                #101d32,
+                #203955,
+                #344c60
+            );
+            color: white;
+        }
+
+        .hero .subtitle {
+            color: #d6bb83;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            color: #e4cf9e;
+            margin-bottom: 8px;
+        }
+
+        .hero .hero-arabic {
+            color: #f5f1e8;
+            font-size: 30px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #e5e4df;
+            line-height: 1.7;
+            margin-bottom: 5px;
+        }
+
+        .hero .arabic-description {
+            color: #e5e4df;
+            margin-bottom: 28px;
+        }
+
+        button {
+            background-color: #d6bb83;
+            color: #101d32;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #f0dfb8;
+            transform: translateY(-3px);
+        }
+
+        /* Exhibition Halls */
+        .sections {
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .sections h2 {
+            font-size: 32px;
+            color: #101d32;
+            margin-bottom: 8px;
+        }
+
+        .section-description {
+            color: #77736b;
+            margin-bottom: 5px;
+            line-height: 1.7;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .card {
+            background-color: #fffdf8;
+            padding: 38px 28px;
+            width: 310px;
+            border-radius: 8px;
+            border-bottom: 4px solid #c5a66b;
+            box-shadow: 0 5px 20px #101d3215;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px #101d3225;
+        }
+
+        .card .symbol {
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+        .card h3 {
+            color: #a18450;
+            font-size: 21px;
+            margin-bottom: 7px;
+        }
+
+        .card p {
+            color: #6d6b65;
+            line-height: 1.7;
+        }
+
+        .card .arabic-description {
+            margin-bottom: 20px;
+        }
+
+        /* Collections */
+        .collection {
+            display: none;
+            padding: 55px 8%;
+            background-color: #f5f1e8;
+            text-align: center;
+        }
+
+        .collection h2 {
+            color: #101d32;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .collection-intro {
+            color: #77736b;
+            margin-bottom: 5px;
+        }
+
+        .artifact-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .artifact-item {
+            width: 260px;
+            background: #fffdf8;
+            border-radius: 9px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px #101d3215;
+            transition: 0.3s;
+        }
+
+        .artifact-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .artifact-image {
+            height: 190px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #203955, #536b76);
+        }
+
+        .artifact-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .artifact-info {
+            padding: 22px;
+        }
+
+        .artifact-info h3 {
+            color: #a18450;
+            margin-bottom: 5px;
+            font-size: 19px;
+        }
+
+        .artifact-info p {
+            color: #77736b;
+            line-height: 1.6;
+            font-size: 13px;
+        }
+
+        .artifact-info .arabic-description {
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .image-source {
+            color: #a18450;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        .image-source:hover {
+            text-decoration: underline;
+        }
+
+        .back-button {
+            margin-top: 35px;
+        }
+
+        /* About */
+        #about {
+            background-color: #e9e3d7;
+        }
+
+        #about p {
+            max-width: 750px;
+            margin: 10px auto;
+            line-height: 1.9;
+            color: #55534d;
+        }
+
+        /* Visitor Registration */
+        .registration {
+            padding: 75px 20px;
+            text-align: center;
+            background-color: #e9e3d7;
+        }
+
+        .registration h2 {
+            color: #101d32;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .registration-form {
+            max-width: 450px;
+            margin: 30px auto 0;
+            background: #fffdf8;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px #101d3215;
+        }
+
+        .registration-form input {
+            width: 100%;
+            padding: 14px;
+            margin: 18px 0;
+            border: 1px solid #d6bb83;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .registration-form input:focus {
+            outline: 2px solid #d6bb83;
+        }
+
+        .ticket {
+            display: none;
+            max-width: 450px;
+            margin: 30px auto 0;
+            padding: 30px;
+            background: #fffdf8;
+            border: 2px dashed #b99a60;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .ticket h3 {
+            color: #a18450;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .ticket p {
+            color: #202b3c;
+            margin: 14px 0;
+            line-height: 1.7;
+        }
+
+        .ticket .ticket-arabic {
+            direction: rtl;
+            text-align: right;
+            font-family: Tahoma, Arial, sans-serif;
+            font-size: 13px;
+            color: #77736b;
+            margin-top: -10px;
+        }
+
+        .ticket span {
+            font-weight: bold;
+            color: #101d32;
+        }
+
+        .ticket-note {
+            text-align: center;
+            font-size: 13px;
+            color: #a18450 !important;
+            margin-top: 25px !important;
+        }
+
+        .print-button {
+            display: block;
+            margin: 20px auto 0;
+        }
+
+        /* Project Team */
+        .team {
+            padding: 65px 8%;
+            text-align: center;
+            background-color: #fffdf8;
+        }
+
+        .team h2 {
+            color: #101d32;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .team-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .member {
+            background-color: #f5f1e8;
+            border: 1px solid #d6bb83;
+            padding: 18px 25px;
+            border-radius: 6px;
+            min-width: 180px;
+            color: #101d32;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #101d32;
+            color: #e4cf9e;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        footer .arabic {
+            color: #f5f1e8;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header {
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav {
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .hero-arabic {
+                font-size: 25px;
+            }
+
+            .sections h2 {
+                font-size: 26px;
+            }
+
+            .artifact-item {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+
+        /* Print Ticket Only */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #ticket, #ticket * {
+                visibility: visible;
+            }
+
+            #ticket {
+                display: block !important;
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                max-width: 450px;
+                margin: 0;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <div>
+            <h2>National Museum</h2>
+            <p class="arabic">المتحف الوطني</p>
+        </div>
+
+        <nav>
+            <a href="#home">
+                Home
+                <span class="arabic">الرئيسية</span>
+            </a>
+
+            <a href="#rooms">
+                Exhibitions
+                <span class="arabic">المعارض</span>
+            </a>
+
+            <a href="#about">
+                About
+                <span class="arabic">عن المتحف</span>
+            </a>
+
+            <a href="#tickets">
+                Tickets
+                <span class="arabic">التذاكر</span>
+            </a>
+
+            <a href="#team">
+                Our Team
+                <span class="arabic">فريقنا</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Home -->
+    <section class="hero" id="home">
+
+        <div class="subtitle">WELCOME TO</div>
+
+        <h1>National Museum</h1>
+
+        <h2 class="hero-arabic arabic">المتحف الوطني</h2>
+
+        <p>
+            Discover Saudi History, Heritage and Culture.
+            <br>
+            Explore the beauty of our traditions.
+        </p>
+
+        <p class="arabic arabic-description">
+            اكتشف تاريخ المملكة وتراثها وثقافتها.
+            <br>
+            واستمتع بجمال عاداتنا وتقاليدنا.
+        </p>
+
+        <button onclick="showMessage()">
+            Explore Museum | استكشف المتحف
+        </button>
+
+    </section>
+
+    <!-- Exhibition Halls -->
+    <section class="sections" id="rooms">
+
+        <h2>Our Exhibition Halls</h2>
+
+        <h3 class="arabic">قاعاتنا التراثية</h3>
+
+        <p class="section-description">
+            Discover the stories and traditions of Saudi Arabia.
+        </p>
+
+        <p class="arabic arabic-description">
+            اكتشف حكايات المملكة العربية السعودية وتقاليدها العريقة.
+        </p>
+
+        <div class="cards">
+
+            <!-- Heritage Hall -->
+            <div class="card">
+
+                <div class="symbol">🏺</div>
+
+                <h3>Saudi Heritage & History</h3>
+
+                <p class="arabic">
+                    التراث والتاريخ السعودي
+                </p>
+
+                <p>
+                    Explore the history, heritage and traditional
+                    lifestyle of Saudi Arabia.
+                </p>
+
+                <p class="arabic arabic-description">
+                    تعرّف على تاريخ المملكة وتراثها
+                    وأسلوب حياة الأجداد.
+                </p>
+
+                <button onclick="showHall('heritage')">
+                    Explore Collection
+                </button>
+
+            </div>
+
+            <!-- Art Hall -->
+            <div class="card">
+
+                <div class="symbol">🎨</div>
+
+                <h3>Saudi Arts & Crafts</h3>
+
+                <p class="arabic">
+                    الفنون والحرف السعودية
+                </p>
+
+                <p>
+                    Discover traditional Saudi arts,
+                    crafts and handmade designs.
+                </p>
+
+                <p class="arabic arabic-description">
+                    اكتشف الفنون الشعبية والحرف اليدوية
+                    والزخارف السعودية.
+                </p>
+
+                <button onclick="showHall('art')">
+                    Explore Collection
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Saudi Heritage Collection -->
+    <section class="collection" id="heritageCollection">
+
+        <h2>Saudi Heritage & History</h2>
+
+        <h3 class="arabic">التراث والتاريخ السعودي</h3>
+
+        <p class="collection-intro">
+            Discover the treasures of Saudi history.
+        </p>
+
+        <p class="arabic arabic-description">
+            تعرّف على كنوز التاريخ والتراث السعودي.
+        </p>
+
+        <div class="artifact-grid">
+
+            <!-- At Turaif -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/At-Turaif%20District.jpg"
+                        alt="At Turaif District">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>At-Turaif District</h3>
+
+                    <p class="arabic">حي الطريف بالدرعية</p>
+
+                    <p>
+                        A historic district in Diriyah
+                        and the birthplace of the First Saudi State.
+                    </p>
+
+                    <p class="arabic-description">
+                        حي تاريخي في الدرعية ارتبط بنشأة
+                        الدولة السعودية الأولى.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:At-Turaif_District.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Dallah -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Dallah.jpg"
+                        alt="Traditional Dallah">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Traditional Dallah</h3>
+
+                    <p class="arabic">الدلة السعودية</p>
+
+                    <p>
+                        A traditional coffee pot that represents
+                        Saudi generosity and hospitality.
+                    </p>
+
+                    <p class="arabic-description">
+                        الدلة رمز الكرم والضيافة السعودية،
+                        وتُستخدم لتقديم القهوة العربية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:Dallah.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Saudi Coins -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Riyal%20-%20Abd%20al-Az%C4%ABz%20Saudi%20Arabia%201935.png"
+                        alt="Old Saudi Riyal">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Historical Saudi Coins</h3>
+
+                    <p class="arabic">العملات السعودية القديمة</p>
+
+                    <p>
+                        Historical coins that reflect the
+                        development of currency in Saudi Arabia.
+                    </p>
+
+                    <p class="arabic-description">
+                        عملات تاريخية توثّق تطور النقد
+                        في المملكة العربية السعودية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/Category:Coins_of_Saudi_Arabia"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Pottery -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Jar%20Dating%20to%20the%20Second%20Millennium%20BC%2C%20Found%20in%20Tabuk%20Region%2C%20on%20Display%20at%20the%20National%20Museum%20%282025%29.jpg"
+                        alt="Ancient Saudi Pottery">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Ancient Pottery</h3>
+
+                    <p class="arabic">الفخار الأثري</p>
+
+                    <p>
+                        An ancient pottery jar discovered
+                        in the Tabuk region.
+                    </p>
+
+                    <p class="arabic-description">
+                        جرة فخارية أثرية عُثر عليها
+                        في منطقة تبوك.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:Jar_Dating_to_the_Second_Millennium_BC,_Found_in_Tabuk_Region,_on_Display_at_the_National_Museum_(2025).jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="back-button" onclick="hideCollections()">
+            Back to Halls | العودة للقاعات
+        </button>
+
+    </section>
+
+    <!-- Saudi Arts and Crafts -->
+    <section class="collection" id="artCollection">
+
+        <h2>Saudi Arts & Crafts</h2>
+
+        <h3 class="arabic">الفنون والحرف السعودية</h3>
+
+        <p class="collection-intro">
+            Explore the creativity of Saudi traditional arts.
+        </p>
+
+        <p class="arabic arabic-description">
+            استكشف إبداع الفنون والحرف التقليدية السعودية.
+        </p>
+
+        <div class="artifact-grid">
+
+            <!-- Al Qatt Al Asiri -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Rijal%20Alma%20village%20from%20the%20inside%2C%202021.jpg"
+                        alt="Al Qatt Al Asiri">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Al-Qatt Al-Asiri</h3>
+
+                    <p class="arabic">فن القط العسيري</p>
+
+                    <p>
+                        A traditional wall art from the Asir region,
+                        known for its colorful geometric patterns.
+                    </p>
+
+                    <p class="arabic-description">
+                        فن جداري تقليدي من منطقة عسير،
+                        يتميز بزخارفه الهندسية وألوانه الزاهية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:Rijal_Alma_village_from_the_inside,_2021.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Sadu -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Women%27s%20fashion%20from%20Saudi%20Sadu%20weaving%20decorations.jpg"
+                        alt="Saudi Sadu">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Al-Sadu Weaving</h3>
+
+                    <p class="arabic">حياكة السدو</p>
+
+                    <p>
+                        A traditional weaving craft using
+                        colorful threads and geometric patterns.
+                    </p>
+
+                    <p class="arabic-description">
+                        حرفة يدوية تراثية تعتمد على نسج
+                        الخيوط بألوان وزخارف هندسية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:Women's_fashion_from_Saudi_Sadu_weaving_decorations.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Traditional Clothing -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Female%20traditional%20attire%20in%20Saudi%20Arabia.jpg"
+                        alt="Saudi Traditional Clothing">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Traditional Saudi Clothing</h3>
+
+                    <p class="arabic">الأزياء السعودية التقليدية</p>
+
+                    <p>
+                        Traditional clothing decorated
+                        with beautiful embroidery and patterns.
+                    </p>
+
+                    <p class="arabic-description">
+                        أزياء تراثية تتميز بالتطريز
+                        والزخارف التي تعكس هوية المناطق السعودية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:Female_traditional_attire_in_Saudi_Arabia.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Hijazi Mashrabiya -->
+            <div class="artifact-item">
+
+                <div class="artifact-image">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/%D9%85%D8%B4%D8%B1%D8%A8%D9%8A%D8%A7%D8%AA%20-%D8%AC%D8%AF%D8%A9%20%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%D9%8A%D8%A9.jpg"
+                        alt="Historic Jeddah Mashrabiya">
+                </div>
+
+                <div class="artifact-info">
+
+                    <h3>Hijazi Mashrabiya</h3>
+
+                    <p class="arabic">الرواشين الحجازية</p>
+
+                    <p>
+                        Traditional wooden windows
+                        that decorate historic houses in Jeddah.
+                    </p>
+
+                    <p class="arabic-description">
+                        نوافذ خشبية تراثية تزيّن البيوت
+                        القديمة في جدة التاريخية.
+                    </p>
+
+                    <a class="image-source"
+                       href="https://commons.wikimedia.org/wiki/File:مشربيات_-جدة_التاريخية.jpg"
+                       target="_blank">
+                        Image Source | مصدر الصورة
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button class="back-button" onclick="hideCollections()">
+            Back to Halls | العودة للقاعات
+        </button>
+
+    </section>
+
+    <!-- About -->
+    <section class="sections" id="about">
+
+        <h2>About Our Museum</h2>
+
+        <h3 class="arabic">عن المتحف</h3>
+
+        <p>
+            Our museum celebrates the history, culture
+            and heritage of Saudi Arabia. Through our
+            exhibitions, visitors can discover the traditions,
+            crafts and stories that shaped our identity.
+        </p>
+
+        <p class="arabic">
+            يحتفي متحفنا بتاريخ المملكة العربية السعودية
+            وثقافتها وتراثها. ومن خلال معارضنا، يمكن للزوار
+            اكتشاف التقاليد والحرف والقصص التي شكّلت هويتنا.
+        </p>
+
+    </section>
+
+    <!-- Visitor Registration -->
+    <section class="registration" id="tickets">
+
+        <h2>Visitor Registration</h2>
+
+        <h3 class="arabic">تسجيل الزوار</h3>
+
+        <p>
+            Enter your name to receive your museum ticket.
+        </p>
+
+        <p class="arabic arabic-description">
+            أدخل اسمك للحصول على تذكرة زيارة المتحف.
+        </p>
+
+        <div class="registration-form">
+
+            <input
+                type="text"
+                id="visitorName"
+                placeholder="Enter your full name"
+            >
+
+            <button onclick="generateTicket()">
+                Generate My Ticket | إصدار تذكرتي
+            </button>
+
+        </div>
+
+        <!-- Generated Ticket -->
+        <div class="ticket" id="ticket">
+
+            <h3>NATIONAL MUSEUM</h3>
+            <h3 class="arabic">المتحف الوطني</h3>
+
+            <h3>VISITOR TICKET</h3>
+            <h3 class="arabic">تذكرة زائر</h3>
+
+            <p>
+                Visitor Name:
+                <span id="displayName"></span>
+            </p>
+
+            <p class="ticket-arabic">
+                اسم الزائر
+            </p>
+
+            <p>
+                Ticket Number:
+                <span id="displayID"></span>
+            </p>
+
+            <p class="ticket-arabic">
+                رقم التذكرة
+            </p>
+
+            <p>
+                Visit Date:
+                <span id="displayDate"></span>
+            </p>
+
+            <p class="ticket-arabic">
+                تاريخ الزيارة
+            </p>
+
+            <p>
+                Ticket Price:
+                <span id="displayPrice"></span>
+            </p>
+
+            <p class="ticket-arabic">
+                سعر التذكرة
+            </p>
+
+            <p class="ticket-note">
+                Thank you for visiting our museum!
+            </p>
+
+            <p class="ticket-note arabic">
+                شكرًا لزيارتكم المتحف!
+            </p>
+
+            <button class="print-button" onclick="window.print()">
+                Print Ticket | طباعة التذكرة
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- Project Team -->
+    <section class="team" id="team">
+
+        <h2>Our Project Team</h2>
+
+        <h3 class="arabic">فريق المشروع</h3>
+
+        <p class="team-intro">
+            Designed and developed by
+        </p>
+
+        <p class="arabic">
+            تصميم وتطوير 
+        </p>
+
+        <div class="team-list">
+
+            <div class="member">تذكار فهد </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>National Museum © 2026 | All Rights Reserved</p>
+
+        <p class="arabic">
+            المتحف الوطني © 2026 | جميع الحقوق محفوظة
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        let ticketNumber = 1001;
+
+        function showMessage() {
+            alert("Welcome to the National Museum! | أهلاً بك في المتحف الوطني");
+        }
+
+        function showHall(hall) {
+
+            document.getElementById("rooms").style.display = "none";
+
+            document.getElementById("heritageCollection").style.display = "none";
+            document.getElementById("artCollection").style.display = "none";
+
+            if (hall === "heritage") {
+
+                document.getElementById("heritageCollection").style.display = "block";
+                window.location.hash = "heritageCollection";
+
+            } else if (hall === "art") {
+
+                document.getElementById("artCollection").style.display = "block";
+                window.location.hash = "artCollection";
+
+            }
+
+        }
+
+        function hideCollections() {
+
+            document.getElementById("heritageCollection").style.display = "none";
+            document.getElementById("artCollection").style.display = "none";
+
+            document.getElementById("rooms").style.display = "block";
+
+            window.location.hash = "rooms";
+
+        }
+
+        function generateTicket() {
+
+            let name = document.getElementById("visitorName").value;
+
+            if (name.trim() === "") {
+
+                alert("Please enter your name! | الرجاء إدخال اسمك");
+                return;
+
+            }
+
+            let today = new Date();
+            let date = today.toLocaleDateString("en-GB");
+
+            document.getElementById("displayName").textContent = name;
+            document.getElementById("displayID").textContent = ticketNumber;
+            document.getElementById("displayDate").textContent = date;
+            document.getElementById("displayPrice").textContent = "50 SAR";
+
+            document.getElementById("ticket").style.display = "block";
+
+            ticketNumber++;
+
+        }
+
+    </script>
+
+</body>
+</html>
